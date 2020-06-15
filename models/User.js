@@ -5,6 +5,10 @@ const userSchema = new Schema({
   // declare a new instance of Schema with pre-defined properties
   googleId: String,
   name: String,
+  credits: {
+    type: Number,
+    default: 0,
+  },
 });
 
 mongoose.model("users", userSchema); // create a new model or "collection" called 'users' with userSchema

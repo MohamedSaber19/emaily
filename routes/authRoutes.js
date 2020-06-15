@@ -9,7 +9,13 @@ module.exports = (app) => {
     })
   );
 
-  app.get("/auth/google/callback", passport.authenticate("google")); // handle callback uri with passport
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+      res.redirect("/surveys");
+    }
+  ); // handle callback uri with passport
 
   app.get("/api/current_user", (req, res) => {
     // test auth flow
@@ -19,6 +25,6 @@ module.exports = (app) => {
   app.get("/api/logout", (req, res) => {
     // log out user
     req.logOut();
-    res.send(req.user);
+    res.redirect("/");
   });
 };
