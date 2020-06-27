@@ -5,6 +5,7 @@ const bodyParser = require("body-parser"); // importing body-parser middleware t
 const keys = require("./config/keys"); //importing config keys
 const cookieSession = require("cookie-session"); //importing cookieSession module
 require("./models/User"); //importing model User of users collection
+require("./models/Survey"); // importing model Survey of surveys collection
 require("./services/passport"); //importing passport to handle auth process
 
 mongoose.connect(keys.mongoURI, {
@@ -29,6 +30,7 @@ app.use(passport.session()); // handle session cookie
 //this format is a valid js as we importing routes and then bootstrap our express app as a callback function
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 // Handle express server in Production
 if (process.env.NODE_ENV === "production") {
