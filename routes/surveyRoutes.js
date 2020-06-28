@@ -33,8 +33,8 @@ module.exports = (app) => {
       const user = await req.user.save();
 
       res.send(user);
-    } catch (err) {
-      res.status(422).send(err);
+    } catch (error) {
+      res.status(422).send(error.message);
     }
   });
 };

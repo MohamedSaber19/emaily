@@ -1,28 +1,28 @@
 const sendgrid = require("sendgrid");
 const helper = sendgrid.mail;
 const keys = require("../config/keys");
-const { restart } = require("nodemon");
-
 class Mailer extends helper.Mail {
-  constructor({ subject, recipients }, content) {
+  constructor(survey, content) {
     super();
 
     this.sgApi = sendgrid(keys.sendGridKey);
     this.from_email = new helper.Email("mohamedsaberapp@gmail.com");
-    this.subject = subject;
+    this.subject = survey.subject;
     this.body = new helper.Content("text/html", content);
-    this.recipients = this.formatAddresses(recipients);
+    this.recipients = survey.recipients;
 
     this.addContent(this.body);
     this.addClickTracking();
     this.addRecipients();
   }
 
-  formatAddresses(recipients) {
-    return recipients.map(({ email }) => {
-      new helper.Email(email);
-    });
-  }
+  // formatAddresses(recipients) {
+  //   const adds = recipients.map(({ email }) => {
+  //     new helper.Email(email);
+  //   });
+  //   console.log(adds);
+  //   return adds;
+  // }
 
   addClickTracking() {
     const trackingSettings = new helper.TrackingSettings();
@@ -49,7 +49,7 @@ class Mailer extends helper.Mail {
       body: this.toJSON(),
     });
 
-    const response = await this.sgApi.API(request);
+    const response = await this.sgApi.API(this.request);
     return response;
   }
 }
