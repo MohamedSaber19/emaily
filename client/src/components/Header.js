@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Payments from "./Payments";
 
 function Header(props) {
-  console.log(props);
   const renderContent = () => {
     switch (props.auth) {
       case null:

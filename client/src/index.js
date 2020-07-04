@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import ReactDom from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
@@ -9,7 +8,6 @@ import "materialize-css/dist/css/materialize.min.css";
 
 import App from "./components/App";
 
-window.axios = axios;
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDom.render(
