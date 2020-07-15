@@ -1,4 +1,4 @@
-"# emaily"
+# Emaily
 
 Emaily is a MERN stack application which creates surveys that collect feedback from users through Emails based on their credits (handling payments with STRIPE)
 
@@ -12,7 +12,7 @@ Emaily is a MERN stack application which creates surveys that collect feedback f
 module.exports = {
   googleClientID: YOUR GOOGLE CLIENT_ID,
   googleClientSecret: YOUR GOOGLE CLIENT_SECRET,
-  mongoURI:YOUR MONGO_DB CONNECTION STRING
+  mongoURI:YOUR MONGO_DB CONNECTION STRING,
   cookieKey: YOUR CUSTOM COOKIE KEY,
   stripePublishableKey: YOUR STRIPE PUBLISHABLE KEY,
   stipeSecretKey: YOUR STRIPE SECRET KEY,
