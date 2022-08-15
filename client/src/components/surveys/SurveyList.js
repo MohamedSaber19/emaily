@@ -4,8 +4,7 @@ import { fetchSurveys } from "../../actions";
 
 const SurveyList = ({ fetchSurveys, surveys }) => {
   useEffect(() => {
-    const surveys = fetchSurveys();
-    console.log(surveys);
+    fetchSurveys();
   }, [fetchSurveys]);
 
   const renderSurveys = () => {
