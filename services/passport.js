@@ -13,7 +13,7 @@ passport.deserializeUser((id, done) => {
     done(null, user);
   });
 });
-
+console.log("googleClientID: ", keys.googleClientID);
 passport.use(
   new GoogleStrategy( // create a new googleStrategy instance and use it withing passport and passing some info like clientID, clientSecret & callbackURL to it as arguments as we get these info from google cloud
     {
