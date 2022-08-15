@@ -34,7 +34,7 @@ module.exports = (app) => {
       _user: req.user.id,
       dateSent: Date.now(),
     });
-
+    console.log("survey", survey);
     const mailer = new Mailer(survey, surveyTemplate(survey));
 
     try {
